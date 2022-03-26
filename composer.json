@@ -1,0 +1,23 @@
+{
+    "name": "eason/casbin",
+    "description": "casbin",
+    "require": {
+        "php": "8.0",
+        "illuminate/database": "9.x-dev",
+        "casbin/casbin": "^3.20",
+        "php-di/php-di": "^6.3",
+        "workerman/redis": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Eason\\Casbin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "eason"
+        }
+    ],
+    "minimum-stability": "dev"
+}
