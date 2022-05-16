@@ -1,5 +1,5 @@
 <?php
-namespace Eason\Casbin;
+namespace Sunsgne\Casbin;
 
 class Install
 {
@@ -8,7 +8,7 @@ class Install
     /**
      * @var array
      */
-    protected static $pathRelation = array ('config/plugin/eason/casbin' => 'config/plugin/eason/casbin');
+    protected static $pathRelation = array ('config/plugin/Sunsgne/casbin' => 'config/plugin/Sunsgne/casbin');
 
     /**
      * Install

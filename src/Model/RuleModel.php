@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Eason\Casbin\Model;
+namespace Sunsgne\Casbin\Model;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -88,8 +88,8 @@ class RuleModel extends Model
      */
     protected function config(string $key = null, $default = null)
     {
-        $driver = config('plugin.eason.casbin.permission.default');
-        return config('plugin.eason.casbin.permission.' . $driver . '.' . $key, $default);
+        $driver = config('plugin.Sunsgne.casbin.permission.default');
+        return config('plugin.Sunsgne.casbin.permission.' . $driver . '.' . $key, $default);
     }
 
     /**

@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Eason\Casbin\Adapter;
+namespace Sunsgne\Casbin\Adapter;
 
 use Casbin\Model\Model;
 use Casbin\Persist\Adapter;
@@ -19,7 +19,7 @@ use Casbin\Persist\FilteredAdapter;
 use Casbin\Persist\Adapters\Filter;
 use Casbin\Exceptions\InvalidFilterTypeException;
 use Illuminate\Support\Facades\DB;
-use Eason\Casbin\Model\RuleModel as Rule;
+use Sunsgne\Casbin\Model\RuleModel as Rule;
 
 /**
  * DatabaseAdapter.

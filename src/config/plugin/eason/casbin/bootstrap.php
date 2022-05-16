@@ -1,4 +1,4 @@
 <?php
 return [
-    \Eason\Casbin\Permission::class
+    Sunsgne\Casbin\Permission::class
 ];

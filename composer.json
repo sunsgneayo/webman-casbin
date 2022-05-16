@@ -1,5 +1,5 @@
 {
-    "name": "eason/casbin",
+    "name": "sunsgne/casbin",
     "description": "casbin",
     "require": {
         "php": "8.0",
@@ -11,12 +11,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Eason\\Casbin\\": "src/"
+            "Sunsgne\\Casbin\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "eason"
+            "name": "sunsgne"
         }
     ],
     "minimum-stability": "dev"

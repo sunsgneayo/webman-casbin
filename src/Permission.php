@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Eason\Casbin;
+namespace Sunsgne\Casbin;
 
 
 use Casbin\Enforcer;
@@ -80,18 +80,18 @@ class Permission implements Bootstrap
      */
     public static function start($worker)
     {
-        $configType = config('plugin.eason.casbin.permission.basic.model.config_type');
+        $configType = config('plugin.Sunsgne.casbin.permission.basic.model.config_type');
         $model = new Model();
         if ('file' == $configType) {
-            $model->loadModel(config('plugin.eason.casbin.permission.basic.model.config_file_path'));
+            $model->loadModel(config('plugin.Sunsgne.casbin.permission.basic.model.config_file_path'));
         } elseif ('text' == $configType) {
-            $model->loadModel(config('plugin.eason.casbin.permission.basic.model.config_text'));
+            $model->loadModel(config('plugin.Sunsgne.casbin.permission.basic.model.config_text'));
         }
         if (is_null(static::$_manager)) {
-            static::$_manager = new Enforcer($model, Container::get(config('plugin.eason.casbin.permission.basic.adapter')),false);
+            static::$_manager = new Enforcer($model, Container::get(config('plugin.Sunsgne.casbin.permission.basic.adapter')),false);
         }
         // 多进程需要使用watcher，这里使用定时器定时刷新策略
-        Timer::add(config('plugin.eason.casbin.permission.basic.policy_refresh_time'), function () {
+        Timer::add(config('plugin.Sunsgne.casbin.permission.basic.policy_refresh_time'), function () {
             static::$_manager->loadPolicy();
         });
     }
