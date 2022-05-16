@@ -21,7 +21,7 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 class EarlyExpirationHandler implements MessageHandlerInterface
 {
     private $reverseContainer;
-    private array $processedNonces = [];
+    private $processedNonces = [];
 
     public function __construct(ReverseContainer $reverseContainer)
     {

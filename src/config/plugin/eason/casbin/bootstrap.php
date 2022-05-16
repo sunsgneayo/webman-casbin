@@ -1,4 +1,4 @@
 <?php
 return [
-    Sunsgne\Casbin\Permission::class
+    Sunsgne\Casbin\Auth::class
 ];

@@ -27,11 +27,11 @@ class Parser
     public const OPERATOR_RIGHT = 2;
 
     private $stream;
-    private array $unaryOperators;
-    private array $binaryOperators;
-    private array $functions;
-    private ?array $names;
-    private bool $lint = false;
+    private $unaryOperators;
+    private $binaryOperators;
+    private $functions;
+    private $names;
+    private $lint;
 
     public function __construct(array $functions)
     {
@@ -86,9 +86,11 @@ class Parser
      * variable 'container' can be used in the expression
      * but the compiled code will use 'this'.
      *
+     * @return Node\Node
+     *
      * @throws SyntaxError
      */
-    public function parse(TokenStream $stream, array $names = []): Node\Node
+    public function parse(TokenStream $stream, array $names = [])
     {
         $this->lint = false;
 
@@ -122,7 +124,8 @@ class Parser
             throw new SyntaxError(sprintf('Unexpected token "%s" of value "%s".', $stream->current->type, $stream->current->value), $stream->current->cursor, $stream->getExpression());
         }
 
-        unset($this->stream, $this->names);
+        $this->stream = null;
+        $this->names = null;
 
         return $node;
     }

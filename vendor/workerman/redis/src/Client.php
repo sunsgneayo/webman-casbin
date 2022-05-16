@@ -14,7 +14,7 @@
 namespace Workerman\Redis;
 
 use Workerman\Connection\AsyncTcpConnection;
-use Workerman\Lib\Timer;
+use Workerman\Timer;
 
 /**
  * Class Client
@@ -391,6 +391,13 @@ class Client
             $type = $data[0];
             if (!$this->_subscribe) {
                 unset($this->_queue[key($this->_queue)]);
+            }
+            if (empty($this->_queue)) {
+                $this->_queue = [];
+                gc_collect_cycles();
+                if (function_exists('gc_mem_caches')) {
+                    gc_mem_caches();
+                }
             }
             $success = $type === '-' || $type === '!' ? false : true;
             $exception = false;

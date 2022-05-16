@@ -20,9 +20,9 @@ class TokenStream
 {
     public $current;
 
-    private array $tokens;
-    private int $position = 0;
-    private string $expression;
+    private $tokens;
+    private $position = 0;
+    private $expression;
 
     public function __construct(array $tokens, string $expression = '')
     {
@@ -33,8 +33,10 @@ class TokenStream
 
     /**
      * Returns a string representation of the token stream.
+     *
+     * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
         return implode("\n", $this->tokens);
     }
@@ -67,8 +69,10 @@ class TokenStream
 
     /**
      * Checks if end of stream was reached.
+     *
+     * @return bool
      */
-    public function isEOF(): bool
+    public function isEOF()
     {
         return Token::EOF_TYPE === $this->current->type;
     }

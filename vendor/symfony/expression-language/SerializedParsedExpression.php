@@ -18,7 +18,7 @@ namespace Symfony\Component\ExpressionLanguage;
  */
 class SerializedParsedExpression extends ParsedExpression
 {
-    private string $nodes;
+    private $nodes;
 
     /**
      * @param string $expression An expression

@@ -44,7 +44,7 @@ use Webman\Bootstrap;
  * @method static getImplicitPermissionsForUser(string $username, string ...$domain) 获取用户具有的隐式权限
  * @method static addFunction(string $name, \Closure $func) 添加一个自定义函数
  */
-class Permission implements Bootstrap
+class Auth implements Bootstrap
 {
     /**
      * @var $_manager
@@ -52,31 +52,11 @@ class Permission implements Bootstrap
     protected static $_manager = null;
 
     /**
-     * Permission constructor.
-     * Creates an Permission via file or DB.
-     * File:
-     * $e = new Permission("path/to/basic_model.conf", "path/to/basic_policy.csv")
-     * MySQL DB:
-     * $a = DatabaseAdapter::newAdapter([
-     *      'type'     => 'mysql', // mysql,pgsql,sqlite,sqlsrv
-     *      'hostname' => '127.0.0.1',
-     *      'database' => 'test',
-     *      'username' => 'root',
-     *      'password' => '123456',
-     *      'hostport' => '3306',
-     *  ]);
-     * $e = new Permission("path/to/basic_model.conf", $a).
-     *
-     * @param mixed ...$params
-     *
-     * @throws CasbinException
-     */
-
-    /**
-     * @param Worker $worker
+     * @param $worker
      * @return mixed|void
      * @throws CasbinException
-     * @author Tinywan(ShaoBo Wan)
+     * @datetime 2022/5/16 15:11
+     * @author zhulianyou
      */
     public static function start($worker)
     {

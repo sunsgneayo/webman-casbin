@@ -33,7 +33,10 @@ class Node
         $this->attributes = $attributes;
     }
 
-    public function __toString(): string
+    /**
+     * @return string
+     */
+    public function __toString()
     {
         $attributes = [];
         foreach ($this->attributes as $name => $value) {

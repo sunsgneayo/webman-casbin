@@ -171,36 +171,6 @@ class Builder
     }
 
     /**
-     * Execute a table builder callback if the given table has a given column.
-     *
-     * @param  string  $table
-     * @param  string  $column
-     * @param  \Closure  $callback
-     * @return void
-     */
-    public function whenTableHasColumn(string $table, string $column, Closure $callback)
-    {
-        if ($this->hasColumn($table, $column)) {
-            $this->table($table, fn (Blueprint $table) => $callback($table));
-        }
-    }
-
-    /**
-     * Execute a table builder callback if the given table doesn't have a given column.
-     *
-     * @param  string  $table
-     * @param  string  $column
-     * @param  \Closure  $callback
-     * @return void
-     */
-    public function whenTableDoesntHaveColumn(string $table, string $column, Closure $callback)
-    {
-        if (! $this->hasColumn($table, $column)) {
-            $this->table($table, fn (Blueprint $table) => $callback($table));
-        }
-    }
-
-    /**
      * Get the data type for the given column name.
      *
      * @param  string  $table
@@ -412,6 +382,19 @@ class Builder
         }
 
         return Container::getInstance()->make(Blueprint::class, compact('table', 'callback', 'prefix'));
+    }
+
+    /**
+     * Register a custom Doctrine mapping type.
+     *
+     * @param  string  $class
+     * @param  string  $name
+     * @param  string  $type
+     * @return void
+     */
+    public function registerCustomDoctrineType($class, $name, $type)
+    {
+        $this->connection->registerDoctrineType($class, $name, $type);
     }
 
     /**

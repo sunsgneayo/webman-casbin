@@ -29,7 +29,7 @@ class ExpressionLanguage
     private $parser;
     private $compiler;
 
-    protected array $functions = [];
+    protected $functions = [];
 
     /**
      * @param ExpressionFunctionProviderInterface[] $providers
@@ -45,24 +45,36 @@ class ExpressionLanguage
 
     /**
      * Compiles an expression source code.
+     *
+     * @param Expression|string $expression The expression to compile
+     *
+     * @return string
      */
-    public function compile(Expression|string $expression, array $names = []): string
+    public function compile($expression, array $names = [])
     {
         return $this->getCompiler()->compile($this->parse($expression, $names)->getNodes())->getSource();
     }
 
     /**
      * Evaluate an expression.
+     *
+     * @param Expression|string $expression The expression to compile
+     *
+     * @return mixed
      */
-    public function evaluate(Expression|string $expression, array $values = []): mixed
+    public function evaluate($expression, array $values = [])
     {
         return $this->parse($expression, array_keys($values))->getNodes()->evaluate($this->functions, $values);
     }
 
     /**
      * Parses an expression.
+     *
+     * @param Expression|string $expression The expression to parse
+     *
+     * @return ParsedExpression
      */
-    public function parse(Expression|string $expression, array $names): ParsedExpression
+    public function parse($expression, array $names)
     {
         if ($expression instanceof ParsedExpression) {
             return $expression;
@@ -91,11 +103,12 @@ class ExpressionLanguage
     /**
      * Validates the syntax of an expression.
      *
-     * @param array|null $names The list of acceptable variable names in the expression, or null to accept any names
+     * @param Expression|string $expression The expression to validate
+     * @param array|null        $names      The list of acceptable variable names in the expression, or null to accept any names
      *
      * @throws SyntaxError When the passed expression is invalid
      */
-    public function lint(Expression|string $expression, ?array $names): void
+    public function lint($expression, ?array $names): void
     {
         if ($expression instanceof ParsedExpression) {
             return;
@@ -116,7 +129,7 @@ class ExpressionLanguage
      */
     public function register(string $name, callable $compiler, callable $evaluator)
     {
-        if (isset($this->parser)) {
+        if (null !== $this->parser) {
             throw new \LogicException('Registering functions after calling evaluate(), compile() or parse() is not supported.');
         }
 
@@ -142,17 +155,27 @@ class ExpressionLanguage
 
     private function getLexer(): Lexer
     {
-        return $this->lexer ??= new Lexer();
+        if (null === $this->lexer) {
+            $this->lexer = new Lexer();
+        }
+
+        return $this->lexer;
     }
 
     private function getParser(): Parser
     {
-        return $this->parser ??= new Parser($this->functions);
+        if (null === $this->parser) {
+            $this->parser = new Parser($this->functions);
+        }
+
+        return $this->parser;
     }
 
     private function getCompiler(): Compiler
     {
-        $this->compiler ??= new Compiler($this->functions);
+        if (null === $this->compiler) {
+            $this->compiler = new Compiler($this->functions);
+        }
 
         return $this->compiler->reset();
     }

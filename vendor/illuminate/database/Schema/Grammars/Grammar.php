@@ -103,12 +103,10 @@ abstract class Grammar extends BaseGrammar
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
      * @return string
-     *
-     * @throws \RuntimeException
      */
     public function compileDropFullText(Blueprint $blueprint, Fluent $command)
     {
-        throw new RuntimeException('This database driver does not support fulltext index removal.');
+        throw new RuntimeException('This database driver does not support fulltext index creation.');
     }
 
     /**
@@ -162,7 +160,7 @@ abstract class Grammar extends BaseGrammar
         $columns = [];
 
         foreach ($blueprint->getAddedColumns() as $column) {
-            // Each of the column types has their own compiler functions, which are tasked
+            // Each of the column types have their own compiler functions which are tasked
             // with turning the column definition into its SQL format for this platform
             // used by the connection. The column's modifiers are compiled and added.
             $sql = $this->wrap($column).' '.$this->getType($column);
@@ -271,37 +269,6 @@ abstract class Grammar extends BaseGrammar
         return parent::wrapTable(
             $table instanceof Blueprint ? $table->getTable() : $table
         );
-    }
-
-    /**
-     * Split the given JSON selector into the field and the optional path and wrap them separately.
-     *
-     * @param  string  $column
-     * @return array
-     */
-    protected function wrapJsonFieldAndPath($column)
-    {
-        $parts = explode('->', $column, 2);
-
-        $field = $this->wrap($parts[0]);
-
-        $path = count($parts) > 1 ? ', '.$this->wrapJsonPath($parts[1], '->') : '';
-
-        return [$field, $path];
-    }
-
-    /**
-     * Wrap the given JSON path.
-     *
-     * @param  string  $value
-     * @param  string  $delimiter
-     * @return string
-     */
-    protected function wrapJsonPath($value, $delimiter = '->')
-    {
-        $value = preg_replace("/([\\\\]+)?\\'/", "''", $value);
-
-        return '\'$."'.str_replace($delimiter, '"."', $value).'"\'';
     }
 
     /**

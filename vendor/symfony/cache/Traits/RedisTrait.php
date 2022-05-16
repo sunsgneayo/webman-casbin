@@ -30,7 +30,7 @@ use Symfony\Component\Cache\Marshaller\MarshallerInterface;
  */
 trait RedisTrait
 {
-    private static array $defaultConnectionOptions = [
+    private static $defaultConnectionOptions = [
         'class' => null,
         'persistent' => 0,
         'persistent_id' => null,
@@ -48,12 +48,19 @@ trait RedisTrait
     private $redis;
     private $marshaller;
 
-    private function init(\Redis|\RedisArray|\RedisCluster|\Predis\ClientInterface|RedisProxy|RedisClusterProxy $redis, string $namespace, int $defaultLifetime, ?MarshallerInterface $marshaller)
+    /**
+     * @param \Redis|\RedisArray|\RedisCluster|\Predis\ClientInterface|RedisProxy|RedisClusterProxy $redis
+     */
+    private function init($redis, string $namespace, int $defaultLifetime, ?MarshallerInterface $marshaller)
     {
         parent::__construct($namespace, $defaultLifetime);
 
         if (preg_match('#[^-+_.A-Za-z0-9]#', $namespace, $match)) {
             throw new InvalidArgumentException(sprintf('RedisAdapter namespace contains "%s" but only characters in [-+_.A-Za-z0-9] are allowed.', $match[0]));
+        }
+
+        if (!$redis instanceof \Redis && !$redis instanceof \RedisArray && !$redis instanceof \RedisCluster && !$redis instanceof \Predis\ClientInterface && !$redis instanceof RedisProxy && !$redis instanceof RedisClusterProxy) {
+            throw new InvalidArgumentException(sprintf('"%s()" expects parameter 1 to be Redis, RedisArray, RedisCluster or Predis\ClientInterface, "%s" given.', __METHOD__, get_debug_type($redis)));
         }
 
         if ($redis instanceof \Predis\ClientInterface && $redis->getOptions()->exceptions) {
@@ -78,9 +85,11 @@ trait RedisTrait
      *
      * @param array $options See self::$defaultConnectionOptions
      *
+     * @return \Redis|\RedisArray|\RedisCluster|RedisClusterProxy|RedisProxy|\Predis\ClientInterface According to the "class" option
+     *
      * @throws InvalidArgumentException when the DSN is invalid
      */
-    public static function createConnection(string $dsn, array $options = []): \Redis|\RedisArray|\RedisCluster|RedisClusterProxy|RedisProxy|\Predis\ClientInterface
+    public static function createConnection(string $dsn, array $options = [])
     {
         if (str_starts_with($dsn, 'redis:')) {
             $scheme = 'redis';
@@ -326,7 +335,7 @@ trait RedisTrait
     /**
      * {@inheritdoc}
      */
-    protected function doFetch(array $ids): iterable
+    protected function doFetch(array $ids)
     {
         if (!$ids) {
             return [];
@@ -362,7 +371,7 @@ trait RedisTrait
     /**
      * {@inheritdoc}
      */
-    protected function doHave(string $id): bool
+    protected function doHave(string $id)
     {
         return (bool) $this->redis->exists($id);
     }
@@ -370,7 +379,7 @@ trait RedisTrait
     /**
      * {@inheritdoc}
      */
-    protected function doClear(string $namespace): bool
+    protected function doClear(string $namespace)
     {
         if ($this->redis instanceof \Predis\ClientInterface) {
             $prefix = $this->redis->getOptions()->prefix ? $this->redis->getOptions()->prefix->getPrefix() : '';
@@ -434,7 +443,7 @@ trait RedisTrait
     /**
      * {@inheritdoc}
      */
-    protected function doDelete(array $ids): bool
+    protected function doDelete(array $ids)
     {
         if (!$ids) {
             return true;
@@ -471,7 +480,7 @@ trait RedisTrait
     /**
      * {@inheritdoc}
      */
-    protected function doSave(array $values, int $lifetime): array|bool
+    protected function doSave(array $values, int $lifetime)
     {
         if (!$values = $this->marshaller->marshall($values, $failed)) {
             return $failed;

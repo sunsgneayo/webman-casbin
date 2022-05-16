@@ -30,9 +30,9 @@ namespace Symfony\Component\ExpressionLanguage;
  */
 class ExpressionFunction
 {
-    private string $name;
-    private \Closure $compiler;
-    private \Closure $evaluator;
+    private $name;
+    private $compiler;
+    private $evaluator;
 
     /**
      * @param string   $name      The function name
@@ -46,17 +46,26 @@ class ExpressionFunction
         $this->evaluator = $evaluator instanceof \Closure ? $evaluator : \Closure::fromCallable($evaluator);
     }
 
-    public function getName(): string
+    /**
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
     }
 
-    public function getCompiler(): \Closure
+    /**
+     * @return \Closure
+     */
+    public function getCompiler()
     {
         return $this->compiler;
     }
 
-    public function getEvaluator(): \Closure
+    /**
+     * @return \Closure
+     */
+    public function getEvaluator()
     {
         return $this->evaluator;
     }
@@ -66,11 +75,13 @@ class ExpressionFunction
      *
      * @param string|null $expressionFunctionName The expression function name (default: same than the PHP function name)
      *
+     * @return self
+     *
      * @throws \InvalidArgumentException if given PHP function name does not exist
      * @throws \InvalidArgumentException if given PHP function name is in namespace
      *                                   and expression function name is not defined
      */
-    public static function fromPhp(string $phpFunctionName, string $expressionFunctionName = null): self
+    public static function fromPhp(string $phpFunctionName, string $expressionFunctionName = null)
     {
         $phpFunctionName = ltrim($phpFunctionName, '\\');
         if (!\function_exists($phpFunctionName)) {
