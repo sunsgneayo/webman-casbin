@@ -1,7 +1,6 @@
 {
     "name": "sunsgne/casbin",
     "description": "webman-casbin",
-    "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
