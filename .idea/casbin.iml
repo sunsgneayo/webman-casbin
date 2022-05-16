@@ -96,6 +96,21 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-coveralls" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/theseer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
