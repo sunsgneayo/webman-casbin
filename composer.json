@@ -1,0 +1,31 @@
+{
+    "name": "sunsgne/webman-casbin",
+    "description": "webman-casbin",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sunsgne\\WebmanCasbin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sunsgne ",
+            "email": "sunsgne@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "illuminate/database": "^8.83",
+        "casbin/casbin": "^3.20",
+        "topthink/think-orm": "^2.0",
+        "php-di/php-di": "^6.3",
+        "workerman/redis": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0|~8.0|~9.0",
+        "php-coveralls/php-coveralls": "^2.1",
+        "workerman/webman": "^1.0",
+        "illuminate/cache": "^8.83"
+    }
+}
