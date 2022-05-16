@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace Sunsgne\WebmanCasbin\Adapter;
-use Sunsgne\WebmanCasbin\Models\Rule;
+use Sunsgne\WebmanCasbin\Model\RuleModel as Rule;
 use Sunsgne\WebmanCasbin\Contracts\DatabaseAdapter as DatabaseAdapterContract;
 use Sunsgne\WebmanCasbin\Contracts\BatchDatabaseAdapter as BatchDatabaseAdapterContract;
 use Sunsgne\WebmanCasbin\Contracts\UpdatableDatabaseAdapter as UpdatableDatabaseAdapterContract;
@@ -12,6 +12,7 @@ use Casbin\Persist\AdapterHelper;
 use DateTime;
 use Casbin\Exceptions\InvalidFilterTypeException;
 use Illuminate\Support\Facades\DB as Db;
+use Throwable;
 
 /**
  * @purpose database 数据库适配器
