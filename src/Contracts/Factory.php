@@ -1,6 +1,6 @@
 <?php
 
-namespace Sunsgne\WebmanCasbin\Contracts;
+namespace sunsgne\Contracts;
 
 interface Factory
 {

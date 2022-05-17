@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Sunsgne\WebmanCasbin\Model;
+namespace sunsgne\Model;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +16,7 @@ class RuleModel extends Model
     /**
      * @var string
      */
-    protected $guard;
+    protected mixed $guard;
 
     /**
      * @var string[]
@@ -45,7 +45,7 @@ class RuleModel extends Model
      *
      * @return mixed
      */
-    public function getAllFromCache()
+    public function getAllFromCache(): mixed
     {
         $get = function () {
             return $this->select('ptype', 'v0', 'v1', 'v2', 'v3', 'v4', 'v5')->get()->toArray();

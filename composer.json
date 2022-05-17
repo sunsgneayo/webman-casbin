@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sunsgne\\WebmanCasbin\\": "src/"
+            "sunsgne\\": "src"
         }
     },
     "authors": [

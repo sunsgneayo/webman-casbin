@@ -1,11 +1,12 @@
 <?php
 declare(strict_types=1);
-namespace Sunsgne\WebmanCasbin\Adapter;
-use Sunsgne\WebmanCasbin\Model\RuleModel as Rule;
-use Sunsgne\WebmanCasbin\Contracts\DatabaseAdapter as DatabaseAdapterContract;
-use Sunsgne\WebmanCasbin\Contracts\BatchDatabaseAdapter as BatchDatabaseAdapterContract;
-use Sunsgne\WebmanCasbin\Contracts\UpdatableDatabaseAdapter as UpdatableDatabaseAdapterContract;
-use Sunsgne\WebmanCasbin\Contracts\FilteredDatabaseAdapter as FilteredDatabaseAdapterContract;
+namespace sunsgne\Adapter;
+
+use sunsgne\Model\RuleModel as Rule;
+use sunsgne\Contracts\DatabaseAdapter as DatabaseAdapterContract;
+use sunsgne\Contracts\BatchDatabaseAdapter as BatchDatabaseAdapterContract;
+use sunsgne\Contracts\UpdatableDatabaseAdapter as UpdatableDatabaseAdapterContract;
+use sunsgne\Contracts\FilteredDatabaseAdapter as FilteredDatabaseAdapterContract;
 use Casbin\Persist\Adapters\Filter;
 use Casbin\Model\Model;
 use Casbin\Persist\AdapterHelper;
@@ -76,7 +77,7 @@ class DataBaseAdapter implements DatabaseAdapterContract, BatchDatabaseAdapterCo
     {
         $col['ptype'] = $ptype;
         foreach ($rule as $key => $value) {
-            $col['v'.strval($key)] = $value;
+            $col['v'. $key] = $value;
         }
 
         $this->eloquent->create($col);
