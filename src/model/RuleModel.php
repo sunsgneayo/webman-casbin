@@ -31,7 +31,7 @@ class RuleModel extends Model
     {
         $this->guard = $guard;
         if (!$guard) {
-            $this->guard = config('plugin.casbin.webman-auth.auth.default');
+            $this->guard = config('plugin.sunsgne.casbin.auth.default');
         }
         $connection = $this->config('database.connection') ?: config('database.default');
         $this->setConnection($connection);
