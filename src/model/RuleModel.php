@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace sunsgne\Model;
+namespace sunsgne\model;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -64,6 +64,6 @@ class RuleModel extends Model
      */
     protected function config($key = null, $default = null)
     {
-        return config('plugin.casbin.webman-auth.auth.'.$this->guard.'.'.$key, $default);
+        return config('plugin.sunsgne.casbin.auth.'.$this->guard.'.'.$key, $default);
     }
 }

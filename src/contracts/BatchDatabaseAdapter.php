@@ -1,6 +1,6 @@
 <?php
 
-namespace sunsgne\Contracts;
+namespace sunsgne\contracts;
 
 use Casbin\Persist\BatchAdapter;
 

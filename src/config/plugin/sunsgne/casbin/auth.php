@@ -9,7 +9,7 @@ return [
             'config_text' => '',
         ],
         # 适配器
-        'adapter' => \sunsgne\Adapter\DatabaseAdapter::class,
+        'adapter' => \sunsgne\adapter\DatabaseAdapter::class,
         'database' => [
             'connection' => '',
             'rules_table' => 'casbin_rule',
