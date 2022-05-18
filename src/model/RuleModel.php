@@ -16,7 +16,7 @@ class RuleModel extends Model
     /**
      * @var string
      */
-    protected mixed $guard;
+    protected  $guard;
 
     /**
      * @var string[]
@@ -45,7 +45,7 @@ class RuleModel extends Model
      *
      * @return mixed
      */
-    public function getAllFromCache(): mixed
+    public function getAllFromCache()
     {
         $get = function () {
             return $this->select('ptype', 'v0', 'v1', 'v2', 'v3', 'v4', 'v5')->get()->toArray();
@@ -57,12 +57,12 @@ class RuleModel extends Model
     /**
      * Gets config value by key.
      *
-     * @param string $key
-     * @param string $default
+     * @param string|null $key
+     * @param string|null $default
      *
      * @return mixed
      */
-    protected function config($key = null, $default = null)
+    protected function config(string $key = null, string $default = null)
     {
         return config('plugin.sunsgne.casbin.auth.'.$this->guard.'.'.$key, $default);
     }
