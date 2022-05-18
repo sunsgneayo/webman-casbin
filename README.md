@@ -1,4 +1,4 @@
-# webman casbin plugin
+# webman casbin
 
 基于php-casbin/webman-permission，不同之处是没有用thinkorm,然后解决了几个错误
 ## 依赖
@@ -47,5 +47,40 @@ CREATE TABLE `casbin_rule` (
     KEY `idx_v5` ( `v5` ) USING BTREE 
 ) ENGINE = INNODB CHARSET = utf8mb4 COMMENT = '策略规则表';
 ```
+## 用法
+```php
+use sunsgne\Auth;
 
+// adds permissions to a user
+Auth::addPermissionForUser('user:1', '/api/backend/cap', 'get');
+// adds a role for a user.
+Auth::addRoleForUser('user:1', 'role:1');
+// adds permissions to a rule
+Auth::addPolicy('role:1', '/api/backend/login','post');
+```
 
+你可以检查一个用户是否拥有某个权限:
+
+```php
+if (Permission::enforce("user:1", "/api/backend/login", "post")) {
+    echo '恭喜你！通过权限认证';
+} else {
+    echo '对不起，您没有该资源访问权限';
+}
+```
+## 获取角色|用户
+```php
+$r =  Auth::getRolesForUser('uuid:1');
+$u =  Auth::getUsersForRole('roleId:1');
+$a =  Auth::enforce("uuid:1" , "roleId:1" ,"post");
+```
+### 响应
+```php
+ array:1 [
+  0 => "roleId:1"
+]
+ array:1 [
+  0 => "uuid:1"
+]
+true
+```
