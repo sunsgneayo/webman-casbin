@@ -26,16 +26,16 @@ use Webman\Bootstrap;
  * @method static getUsersForRole(string $name, string ...$domain) 获取某个角色的所有用户
  * @method static hasRoleForUser(string $name, string $role, string ...$domain) 决定用户是否拥有某个角色
  * @method static addRoleForUser(string $user, string $role, string ...$domain) 给用户添加角色
- * @method static addauthForUser(string $user, string ...$auth) 赋予权限给某个用户或角色
+ * @method static addPermissionForUser(string $user, string ...$Permission) 赋予权限给某个用户或角色
  * @method static deleteRoleForUser(string $user, string $role, string $domain) 删除用户的角色
  * @method static deleteRolesForUser(string $user, string ...$domain) 删除某个用户的所有角色
  * @method static deleteRole(string $role) 删除单个角色
- * @method static deleteauth(string ...$auth) 删除某个权限
- * @method static deleteauthsForUser(string $user, string ...$auth) 删除某个用户或角色的权限
- * @method static getauthsForUser(string $user) 获取用户或角色的所有权限
- * @method static hasauthForUser(string $user, string ...$auth) 决定某个用户是否拥有某个权限
+ * @method static deletePermission(string ...$Permission) 删除某个权限
+ * @method static deletePermissionsForUser(string $user, string ...$Permission) 删除某个用户或角色的权限
+ * @method static getPermissionsForUser(string $user) 获取用户或角色的所有权限
+ * @method static hasPermissionForUser(string $user, string ...$Permission) 决定某个用户是否拥有某个权限
  * @method static getImplicitRolesForUser(string $name, string ...$domain) 获取用户具有的隐式角色
- * @method static getImplicitauthsForUser(string $username, string ...$domain) 获取用户具有的隐式权限
+ * @method static getImplicitPermissionsForUser(string $username, string ...$domain) 获取用户具有的隐式权限
  * @method static addFunction(string $name, \Closure $func) 添加一个自定义函数
  */
 
