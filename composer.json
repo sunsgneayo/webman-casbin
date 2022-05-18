@@ -18,7 +18,6 @@
         "php": ">=7.4",
         "illuminate/database": "^8.83",
         "casbin/casbin": "^3.20",
-        "topthink/think-orm": "^2.0",
         "php-di/php-di": "^6.3",
         "workerman/redis": "^1.0"
     },
