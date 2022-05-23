@@ -1,6 +1,6 @@
 # webman casbin
 
-基于php-casbin/webman-permission，不同之处是没有用thinkorm,然后解决了几个错误
+基于php-casbin，与webman-permission不同之处是没有用thinkorm,然后解决了几个错误
 ## 依赖
 - [tinywan-casbin](https://github.com/php-casbin/webman-permission) 
 - [Casbin](https://casbin.org)
@@ -10,7 +10,7 @@
 ## 安装
 
 ```sh
-composer require  casbin/webman-permission
+composer require  sunsgne/casbin
 ```
 
 ## 使用
