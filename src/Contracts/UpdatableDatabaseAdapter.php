@@ -1,6 +1,6 @@
 <?php
 
-namespace sunsgne\contracts;
+namespace sunsgne\Contracts;
 
 use Casbin\Persist\UpdatableAdapter;
 

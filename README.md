@@ -62,7 +62,7 @@ Auth::addPolicy('role:1', '/api/backend/login','post');
 你可以检查一个用户是否拥有某个权限:
 
 ```php
-if (Permission::enforce("user:1", "/api/backend/login", "post")) {
+if (Auth::enforce("user:1", "/api/backend/login", "post")) {
     echo '恭喜你！通过权限认证';
 } else {
     echo '对不起，您没有该资源访问权限';

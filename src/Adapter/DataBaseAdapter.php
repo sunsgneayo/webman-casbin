@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace sunsgne\adapter;
+namespace sunsgne\Adapter;
 
 use sunsgne\Model\RuleModel as Rule;
 use sunsgne\Contracts\DatabaseAdapter as DatabaseAdapterContract;
