@@ -8,11 +8,11 @@
 # Webman's webman-casbin
 <div align="center">
 
-[![Latest Stable Version](http://poser.pugx.org/sunsgne/webman-casbin/v)](https://packagist.org/packages/sunsgne/casbin)
-[![Total Downloads](http://poser.pugx.org/sunsgne/webman-casbin/downloads)](https://packagist.org/packages/sunsgne/casbin)
-[![Latest Unstable Version](http://poser.pugx.org/sunsgne/webman-casbin/v/unstable)](https://packagist.org/packages/sunsgne/casbin)
-[![License](http://poser.pugx.org/sunsgne/webman-casbin/license)](https://packagist.org/packages/sunsgne/casbin)
-[![PHP Version Require](http://poser.pugx.org/sunsgne/webman-casbin/require/php)](https://packagist.org/packages/sunsgne/casbin)
+[![Latest Stable Version](http://poser.pugx.org/sunsgne/casbin/v)](https://packagist.org/packages/sunsgne/casbin)
+[![Total Downloads](http://poser.pugx.org/sunsgne/casbin/downloads)](https://packagist.org/packages/sunsgne/casbin)
+[![Latest Unstable Version](http://poser.pugx.org/sunsgne/casbin/v/unstable)](https://packagist.org/packages/sunsgne/casbin)
+[![License](http://poser.pugx.org/sunsgne/casbin/license)](https://packagist.org/packages/sunsgne/casbin)
+[![PHP Version Require](http://poser.pugx.org/sunsgne/casbin/require/php)](https://packagist.org/packages/sunsgne/casbin)
 
 </div>
 
