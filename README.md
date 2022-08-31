@@ -1,3 +1,21 @@
+<div align="center">
+<img width="260px" src="https://cdn.sunsgne.top/logo.png" alt="workbunny"></div>
+
+**<p align="center">sunsgne/webman-casbin</p>**
+
+**<p align="center">🐬 Webman's webman-casbin 🐬</p>**
+
+# Webman's webman-casbin
+<div align="center">
+
+[![Latest Stable Version](http://poser.pugx.org/sunsgne/webman-casbin/v)](https://packagist.org/packages/sunsgne/webman-casbin)
+[![Total Downloads](http://poser.pugx.org/sunsgne/webman-casbin/downloads)](https://packagist.org/packages/sunsgne/webman-casbin)
+[![Latest Unstable Version](http://poser.pugx.org/sunsgne/webman-casbin/v/unstable)](https://packagist.org/packages/sunsgne/webman-casbin)
+[![License](http://poser.pugx.org/sunsgne/webman-casbin/license)](https://packagist.org/packages/sunsgne/webman-nacos)
+[![PHP Version Require](http://poser.pugx.org/sunsgne/webman-casbin/require/php)](https://packagist.org/packages/sunsgne/webman-casbin)
+
+</div>
+
 # webman casbin
 
 基于php-casbin，与webman-permission不同之处是没有用thinkorm,然后解决了几个错误
