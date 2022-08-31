@@ -1,11 +1,10 @@
 <div align="center">
-<img width="260px" src="https://cdn.sunsgne.top/logo.png" alt="workbunny"></div>
+<img width="260px" src="https://cdn.sunsgne.top/logo.png" alt="sunsgne"></div>
 
 **<p align="center">sunsgne/webman-casbin</p>**
 
-**<p align="center">🐬 Webman's webman-casbin 🐬</p>**
+**<p align="center">🐬 webman casbin-based permission assignment management 🐬</p>**
 
-# Webman's webman-casbin
 <div align="center">
 
 [![Latest Stable Version](http://poser.pugx.org/sunsgne/casbin/v)](https://packagist.org/packages/sunsgne/casbin)
