@@ -15,7 +15,7 @@
 
 </div>
 
-# webman casbin
+# webman casbin 权限认证组件
 
 基于php-casbin，与webman-permission不同之处是没有用thinkorm,然后解决了几个错误
 ## 依赖
